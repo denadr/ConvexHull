@@ -87,7 +87,7 @@ namespace ConvexHull
             //}
         }
 
-        public async Task ProcessAlgorithm()
+        public async Task<List<Point>> ProcessAlgorithm()
         {
             int k = 0;
             var hull = new Point[2 * pointCloud.Length];
@@ -139,12 +139,17 @@ namespace ConvexHull
                 k++;
             }
 
-            //if (k > 1)
-            //{ // Remove non-hull vertices after k, remove k - 1 which is a duplicate
-            //    Array.Copy(hull, hull, k - 1);
-            //}
+            var convexHull = new List<Point>();
+            if (k > 1)
+            { // Remove non-hull vertices after k, remove k - 1 which is a duplicate
+                for (int n = 0; n < k - 1; n++)
+                {
+                    convexHull.Add(hull[n]);
+                }
+            }
 
             executionStarted = false;
+            return convexHull;
         }
 
         private double Cross(Point o, Point a, Point b) =>
