@@ -104,7 +104,7 @@ namespace ConvexHull
                     RemoveLine();
 
                     k--;
-                }
+                } 
 
                 hull[k] = pointCloud[n];
 
