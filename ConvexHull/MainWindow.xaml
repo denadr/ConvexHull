@@ -7,8 +7,8 @@
     
     <Grid>
 
-        <sharpGL:OpenGLControl 
-            OpenGLInitialized="OpenGLControl_OpenGLInitialized"
+        <sharpGL:OpenGLControl x:Name="openGLControl" 
+            Resized="OpenGLControl_Resized"
             OpenGLDraw="OpenGLControl_OpenGLDraw"/>
 
     </Grid>
